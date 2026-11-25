@@ -15,6 +15,10 @@
     const f = chip.dataset.f;
     fotos.forEach(el => el.hidden = !(f === 'todos' || el.dataset.cat === f));
   }));
+  // Botões que levam à galeria já filtrada (ex.: "Ver reparações")
+  $$('[data-filtro]').forEach(b => b.addEventListener('click', () => {
+    const chip = $('.chip[data-f="' + b.dataset.filtro + '"]'); if (chip) chip.click();
+  }));
 
   // Lightbox
   const lb = $('#lightbox'), lbImg = $('img', lb), lbCap = $('figcaption', lb);

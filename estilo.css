@@ -209,3 +209,15 @@ details p{color:var(--ink-2);margin:0 0 18px}
 .legenda .ponto{margin-left:10px}.legenda .ponto:first-child{margin-left:0}
 @media (max-width:900px){.meses{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:420px){.meses{grid-template-columns:repeat(2,1fr)}}
+
+/* reparações */
+.reparos{padding-top:0}
+.reparos .sobre{background:var(--card);border-radius:28px;padding:36px;box-shadow:var(--sh);border:1px solid var(--line)}
+.lista-check{list-style:none;padding:0;margin:0 0 16px}
+.lista-check li{position:relative;padding-left:28px;margin:.4em 0;color:var(--ink)}
+.lista-check li::before{content:"";position:absolute;left:2px;top:.45em;width:14px;height:8px;border-left:3px solid var(--wood);border-bottom:3px solid var(--wood);transform:rotate(-45deg)}
+.reparos .ctas{margin-bottom:0}
+@media (max-width:640px){.reparos .sobre{padding:20px;border-radius:20px}}
+.faixa-in{grid-template-columns:repeat(5,1fr)}
+@media (max-width:960px){.faixa-in{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.faixa-in{grid-template-columns:1fr 1fr}.faixa-in>div:last-child{grid-column:1/-1}}
