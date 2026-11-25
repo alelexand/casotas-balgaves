@@ -64,5 +64,54 @@
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) hero.pause();
     else new IntersectionObserver(([e]) => e.isIntersecting ? hero.play().catch(() => {}) : hero.pause()).observe(hero);
   }
+  // Agenda de encomendas: lê a planilha Google publicada (CSV) ou, se falhar, agenda.json.
+  const ag = $('#agenda');
+  if (ag) {
+    const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+    const norm = t => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+    const estado = t => { t = norm(t);
+      if (/pouc|ultim|quase/.test(t)) return 'poucas';
+      if (/chei|fech|esgot|lotad|ocupad/.test(t)) return 'cheio';
+      if (/dispon|livre|abert|vaga/.test(t)) return 'livre'; return null; };
+    const hoje = new Date(), hk = hoje.getFullYear() * 12 + hoje.getMonth();
+    const mes = t => { t = norm(t); const ano = t.match(/20\d\d/); let m = null;
+      MESES.forEach((n, i) => { if (m === null && t.includes(norm(n).slice(0, 3))) m = i + 1; });
+      if (m === null) { const ns = (t.match(/\d+/g) || []).filter(x => x.length <= 2).map(Number);
+        if (!ns.length) return null; m = ns[ns.length - 1] <= 12 ? ns[ns.length - 1] : ns[0]; if (m > 12) return null; }
+      const y = ano ? +ano[0] : (m - 1 >= hoje.getMonth() ? hoje.getFullYear() : hoje.getFullYear() + 1);
+      return y * 12 + (m - 1); };
+    const csv = txt => txt.split(/\r?\n/).map(l => { const out = []; let cur = '', q = false;
+      for (let i = 0; i < l.length; i++) { const c = l[i];
+        if (q) { if (c === '"' && l[i + 1] === '"') { cur += '"'; i++; } else if (c === '"') q = false; else cur += c; }
+        else if (c === '"') q = true; else if (c === ',') { out.push(cur); cur = ''; } else cur += c; }
+      out.push(cur); return out; });
+    const ROT = { livre: 'Disponível', poucas: 'Poucas vagas', cheio: 'Agenda cheia' };
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const desenhar = linhas => {
+      let nota = ''; const map = new Map();
+      linhas.forEach(([a, b]) => { if (!a || !String(a).trim()) return;
+        if (/^(nota|aviso)/.test(norm(a))) { nota = String(b || '').trim(); return; }
+        const k = mes(a), e = estado(b); if (k !== null && e && k >= hk) map.set(k, e); });
+      const ms = [...map].sort((x, y) => x[0] - y[0]).slice(0, 6);
+      const nome = k => `${MESES[k % 12]} de ${Math.floor(k / 12)}`;
+      const prox = (ms.find(([, e]) => e !== 'cheio') || [])[0];
+      let tit, res;
+      if (!ms.length) { tit = 'Fale connosco sobre prazos'; res = 'Consulte a disponibilidade'; nota = nota || 'Envie-nos uma mensagem para saber quando conseguimos entregar a sua casota.'; }
+      else if (prox === undefined) { tit = 'Agenda cheia nos próximos meses'; res = 'Agenda cheia: fale connosco'; }
+      else if (prox === hk) { tit = 'Temos vagas para este mês'; res = 'Vagas disponíveis este mês'; }
+      else { tit = `Próximas entregas a partir de ${nome(prox)}`; res = `Próximas entregas: ${nome(prox)}`; }
+      $('[data-agenda-titulo]').textContent = tit;
+      $('[data-agenda-nota]').textContent = nota;
+      $$('[data-agenda-resumo]').forEach(el => el.innerHTML = '<span class="ponto"></span>' + esc(res));
+      $('[data-agenda-meses]').innerHTML = ms.map(([k, e]) => { const n = MESES[k % 12];
+        return `<li class="mes ${e}"><b>${n[0].toUpperCase() + n.slice(1)}</b><span>${Math.floor(k / 12)}</span><em>${ROT[e]}</em></li>`; }).join('');
+    };
+    const url = ag.dataset.planilha;
+    const deJson = () => fetch('agenda.json', { cache: 'no-cache' }).then(r => r.json()).then(j => desenhar(j.linhas));
+    (url ? fetch(url, { cache: 'no-store' }).then(r => { if (!r.ok) throw 0; return r.text(); })
+            .then(t => { const l = csv(t); if (l.length < 2) throw 0; desenhar(l.slice(1)); })
+         : Promise.reject()).catch(() => deJson().catch(() => {}));
+  }
+
   $('#ano').textContent = new Date().getFullYear();
 })();

@@ -153,7 +153,7 @@ details p{color:var(--ink-2);margin:0 0 18px}
 .contacto .lead{color:#d9cbbb}
 .contacto .eyebrow{color:#f0a066}
 .contacto-in{display:grid;grid-template-columns:1.4fr .8fr;gap:48px;align-items:center}
-.dados{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px 36px;margin:10px 0 0}
+.dados{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 36px;margin:10px 0 0}
 .dados dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#f0a066;font-weight:600;margin-bottom:4px}
 .dados dd{margin:0;color:#efe5d9}
 .dados a{color:#fff}
@@ -185,4 +185,27 @@ details p{color:var(--ink-2);margin:0 0 18px}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .marca span{white-space:nowrap}
-@media (max-width:420px){.marca{font-size:1.08rem}.marca svg{width:30px;height:30px}.topo-in{gap:12px}}
+.marca img{width:48px;height:48px;border-radius:12px;box-shadow:0 2px 8px -2px rgba(60,35,15,.35)}
+.rodape-in{display:flex;align-items:center;gap:16px}
+.rodape-in img{border-radius:12px;flex:none}
+.rodape-in p{margin:0}
+@media (max-width:420px){.topo .btn-sm span{display:none}.topo .btn-sm{padding:10px}.topo .btn-sm svg{width:22px;height:22px}.marca{font-size:1.08rem}.marca img{width:40px;height:40px;border-radius:10px}.topo-in{gap:12px}}
+
+/* agenda */
+.agenda-pilula{display:inline-flex;align-items:center;gap:9px;margin:0 0 16px;padding:8px 14px;border-radius:999px;background:var(--card);border:1.5px solid var(--line);font-size:.92rem;font-weight:600;text-decoration:none;color:var(--ink)}
+.agenda-pilula:hover{border-color:var(--wood)}
+.agenda-pilula .ponto{background:var(--wood);box-shadow:0 0 0 4px rgba(196,96,29,.18)}
+.ponto{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
+.ponto.livre{background:#2e9b5a}.ponto.poucas{background:#e3a01b}.ponto.cheio{background:#b9483a}
+.meses{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.mes{background:var(--card);border-radius:14px;padding:16px 14px 14px;box-shadow:var(--sh);border-top:5px solid;display:flex;flex-direction:column}
+.mes b{font-family:var(--f-tit);font-size:1.15rem}
+.mes span{color:var(--ink-2);font-size:.88rem}
+.mes em{font-style:normal;font-weight:600;font-size:.88rem;margin-top:10px}
+.mes.livre{border-color:#2e9b5a}.mes.livre em{color:#23804a}
+.mes.poucas{border-color:#e3a01b}.mes.poucas em{color:#a86f00}
+.mes.cheio{border-color:#b9483a;opacity:.75}.mes.cheio em{color:#a03a2d}
+.legenda{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:.88rem;color:var(--ink-2);margin:18px 0 0}
+.legenda .ponto{margin-left:10px}.legenda .ponto:first-child{margin-left:0}
+@media (max-width:900px){.meses{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:420px){.meses{grid-template-columns:repeat(2,1fr)}}

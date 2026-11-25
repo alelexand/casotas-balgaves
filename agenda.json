@@ -1,0 +1,12 @@
+{
+  "_como_usar": "Cópia de segurança da agenda. O site usa a planilha Google quando ela estiver ligada; este ficheiro só é usado se a planilha falhar. Estados: Cheio, Poucas vagas ou Disponível.",
+  "linhas": [
+    ["Nota", "Cada casota é feita à mão e por medida, por isso trabalhamos por ordem de encomenda."],
+    ["dezembro 2026", "Cheio"],
+    ["janeiro 2027", "Cheio"],
+    ["fevereiro 2027", "Poucas vagas"],
+    ["março 2027", "Disponível"],
+    ["abril 2027", "Disponível"],
+    ["maio 2027", "Disponível"]
+  ]
+}

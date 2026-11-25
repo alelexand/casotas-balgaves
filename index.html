@@ -15,12 +15,13 @@
 <meta property="og:url" content="https://alelexand.github.io/casotas-balgaves/">
 <meta property="og:image" content="https://alelexand.github.io/casotas-balgaves/media/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c4601d'/%3E%3Cpath d='M12 34 32 16l20 18v16H12z' fill='%23fff7ec'/%3E%3Crect x='26' y='36' width='12' height='14' rx='6' fill='%23c4601d'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="media/video/hero.webp">
-<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="estilo.css?v=202611250913">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -36,6 +37,7 @@
    "description": "Casotas e abrigos em madeira feitos à medida para cães, gatos e outros animais, casinhas de brincar e galinheiros.",
    "url": "https://alelexand.github.io/casotas-balgaves/",
    "image": "https://alelexand.github.io/casotas-balgaves/media/og.jpg",
+   "logo": "https://alelexand.github.io/casotas-balgaves/media/logo.png",
    "telephone": "+351915355009",
    "address": {
     "@type": "PostalAddress",
@@ -186,13 +188,14 @@
 <header class="topo" id="topo">
   <div class="wrap topo-in">
     <a class="marca" href="#" aria-label="Casotas Balgaves — início">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="currentColor"/><path d="M12 34 32 16l20 18v16H12z" fill="#fff7ec"/><rect x="26" y="36" width="12" height="14" rx="6" fill="currentColor"/></svg>
+      <img src="media/logo-96.webp" alt="" width="48" height="48">
       <span>Casotas <b>Balgaves</b></span>
     </a>
     <nav class="menu" aria-label="Principal">
       <a href="#modelos">Modelos</a>
       <a href="#trabalhos">Trabalhos</a>
       <a href="#videos">Vídeos</a>
+      <a href="#agenda">Agenda</a>
       <a href="#sobre">Sobre</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -212,6 +215,7 @@
         <a class="btn btn-wa" href="https://wa.me/351915355009?text=Ol%C3%A1%21%20Vi%20o%20vosso%20site%20e%20gostava%20de%20pedir%20um%20or%C3%A7amento%20para%20uma%20casota." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg><span>Pedir orçamento no WhatsApp</span></a>
         <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
       </div>
+      <a class="agenda-pilula" href="#agenda" data-agenda-resumo><span class="ponto"></span>Próximas entregas: fevereiro de 2027</a>
       <ul class="selos">
         <li><a href="https://www.google.com/maps?cid=14130683892646111304" target="_blank" rel="noopener"><span class="estrelas" aria-hidden="true">★★★★★</span> <b>5,0</b> no Google · 16 avaliações</a></li>
         <li>Marca registada portuguesa</li>
@@ -390,6 +394,26 @@
   </div>
 </section>
 
+<section class="sec agenda" id="agenda" data-planilha="">
+  <div class="wrap">
+    <header class="sec-cab">
+      <p class="eyebrow">Agenda de encomendas</p>
+      <h2 data-agenda-titulo>Próximas entregas a partir de fevereiro de 2027</h2>
+      <p data-agenda-nota>Cada casota é feita à mão e por medida, por isso trabalhamos por ordem de encomenda.</p>
+    </header>
+    <ul class="meses" data-agenda-meses>
+      <li class="mes cheio"><b>Dezembro</b><span>2026</span><em>Agenda cheia</em></li>
+      <li class="mes cheio"><b>Janeiro</b><span>2027</span><em>Agenda cheia</em></li>
+      <li class="mes poucas"><b>Fevereiro</b><span>2027</span><em>Poucas vagas</em></li>
+      <li class="mes livre"><b>Março</b><span>2027</span><em>Disponível</em></li>
+      <li class="mes livre"><b>Abril</b><span>2027</span><em>Disponível</em></li>
+      <li class="mes livre"><b>Maio</b><span>2027</span><em>Disponível</em></li>
+    </ul>
+    <p class="legenda"><span class="ponto livre"></span>Disponível <span class="ponto poucas"></span>Poucas vagas <span class="ponto cheio"></span>Agenda cheia</p>
+    <div class="ctas"><a class="btn btn-wa" href="https://wa.me/351915355009?text=Ol%C3%A1%21%20Vi%20a%20agenda%20no%20vosso%20site%20e%20gostava%20de%20reservar%20uma%20vaga%20para%20uma%20casota." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg><span>Reservar uma vaga</span></a></div>
+  </div>
+</section>
+
 <section class="sec" id="sobre">
   <div class="wrap sobre">
     <img src="media/img/7594-1200.webp" alt="Um patudo dentro da sua casota nova" loading="lazy" decoding="async" width="600" height="450">
@@ -459,7 +483,8 @@
 </main>
 
 <footer class="rodape">
-  <div class="wrap">
+  <div class="wrap rodape-in">
+    <img src="media/logo-96.webp" alt="Logótipo Casotas Balgaves" width="56" height="56" loading="lazy">
     <p>© <span id="ano">2026</span> Casotas Balgaves · Sandim, Vila Nova de Gaia · Marca registada portuguesa</p>
   </div>
 </footer>
@@ -473,6 +498,6 @@
   <button class="lb-nav lb-seg" aria-label="Foto seguinte">›</button>
 </dialog>
 
-<script src="app.js" defer></script>
+<script src="app.js?v=202611250913" defer></script>
 </body>
 </html>
